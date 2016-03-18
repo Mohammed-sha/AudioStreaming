@@ -1,0 +1,20 @@
+Method A causes the lambda to jump around a lot following a sin curve. The only thing stopping method A from
+going below 0 at times is because we do not let it. This is to be expected and is the same as what was discussed in
+lecture. The buffer level on the receiver end get very close to empty at multiple occasions and goes above the 
+target level very often nearlly filling the buffer.
+Method B faired slightly better in changing the rate to down as it never reached 0. The buffer level on the receiver end again fluctuated a lot and never really steadied.
+Method C did not work when trying to send data to an output file. It would play and finish but never closed the
+stream on both ends. While testing this method slowed down the sender enough that the receiver had to stop and wait
+to fill it's buffer again slowly.
+Method D worked as expected the sender rate eventually leveled out after a few seconds and didn't change from there 
+on. The receiver's buffer stayed within a fixed range after it prefetched it's data and never left it again this
+was expected as it was discussed in lecture.
+
+Unfortunately I could not figure out how to use gnuplot. Additionally when testing with Mode 2(Method C)
+it will sometimes not exit after the music has finished playing; no other method does this. When running the 
+server and client the max buffer level and target buffer should be passed in units of kilobytes not bytes
+so instead of 40000 it should be passed as 40. Gamma should be passed in msec, pb-delay in seconds, payload size
+in bytes. On the sender side packet spacing should be in msec. If this is unclear testclient.h and testserver.h both 
+are examples on how to run the program. In the both log files the format is time: bufferlevel: for the receiver
+and time: rate: for the sender.
+
