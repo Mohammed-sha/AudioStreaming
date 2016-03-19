@@ -1,5 +1,5 @@
 The version of linux the program was originally in supported writing directly to audio through /dev/audio. Newer versions of linux do no support this,but to get aroud it simply use ./myaudiostream (args) | padsp tee /dev/audio > /dev/null. This causes the quality of the sound being
-played to be much lower.
+played to be much lower. padsp comes with all newer versions of Ubuntu preinstalled, and is part  of PulseAudio.
 
 This will be modified in the future to actually use the proper method of playing audio.
 
