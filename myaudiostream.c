@@ -4,7 +4,7 @@
 char* serveraddr = "192.168.1.20";
 void main(int argc, char** argv){
 	//Make sure we have enough arguments
-	if(argc < 9){
+	if(argc < 10){
 		printf("Not enough arguments exiting\"n");
 		return;
 	}
@@ -18,7 +18,8 @@ void main(int argc, char** argv){
 	maxbuf  = atoi(argv[5])*1000; //maxbuffer size to keep
 	targbuf = atoi(argv[6])*1000; //target buffer size multiply it by 1000 to get it into bytes
 	logfile = argv[7]; //file to store buffer changes
-	rqfile = argv[8];
+	serveraddr = argv[8];
+	rqfile = argv[9];
 	cl = createclientTCP((char*) serveraddr, tcpport); //Create the TCP client
 	audiolog = fopen(logfile, "w");
 	stream = 0;
