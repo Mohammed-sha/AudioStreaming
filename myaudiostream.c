@@ -1,7 +1,7 @@
 #include "AudioClient.h"
 
 
-char* serveraddr = "128.10.25.101";
+char* serveraddr = "192.168.1.20";
 void main(int argc, char** argv){
 	//Make sure we have enough arguments
 	if(argc < 9){
@@ -65,8 +65,11 @@ void main(int argc, char** argv){
 
 	//Now start copying the file into memory
 	//streamaudiofile(cl, pyldsize);
-	audio = open("/dev/audio", O_WRONLY);
-
+	/*
+	audio = open("/dev/dsp", O_WRONLY);
+	if(audio < 0){
+		printf("%s\n", strerror(errno));
+	}*/
 	//Give the server the all clear
 	struct datamessage msg;
 	//Let the server know we are ready to start

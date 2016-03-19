@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <semaphore.h>

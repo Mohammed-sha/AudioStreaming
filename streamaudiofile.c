@@ -7,7 +7,7 @@
 void streamaudiofile(struct asclient* cl, int pyldsize){
 	//Create a file pointer
 	FILE* tmp = fopen("audio.tmp", "w");
-	//Until the we get the signal to stop write the data to the file
+	//Until we get the signal to stop write the data to the file
 	struct datamessage *msg = (struct datamessage*) malloc(sizeof(struct datamessage));
 	msg->msg = (char*) malloc(sizeof(char)*6); //Malloc enough memory for CLEAR message
 	//Let the server know we are ready to start

@@ -23,7 +23,7 @@ void sendpacket(int sig, siginfo_t* i, void* unused){
 		UDPsend(tserv, &msg);
 		//Free the message buffer
 		free(msg.msg);
-
+//		printf("Sending\n");
 		struct timeval tz; //Timezone for log file
 		gettimeofday(&tz, NULL);
 		fprintf(audiolog, "Time:%d.%d %f\n", (int)tz.tv_sec - (int)start.tv_sec ,(int)tz.tv_usec, pkspc);

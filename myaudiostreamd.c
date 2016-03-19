@@ -58,6 +58,8 @@ void main(int argc, char** argv){
 
 	if(handlerequest(serv, udpports) < 0){
 			printf("Invalid request\n");
+			close(serv->sock);
+			return;
 	}
 	//We had a valid request and need to fork to a worker process
 

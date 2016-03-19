@@ -8,9 +8,11 @@ void playback(int sig, siginfo_t* i, void* unused){
 		ualarm(pbrate*1000, 0);
 		return;//we need to wait for more data
 	}
-
+//	printf("Playback\n");
 	if(bflvl >= pyldsize){
-		write(audio, databuffer, pyldsize); //Write a payload size
+	//	write(audio, databuffer, pyldsize); //Write a payload size
+
+		write(1, databuffer, pyldsize);
 		memmove(databuffer, databuffer+pyldsize, bflvl - pyldsize);//copy the remaining data to the front
 		bflvl -= pyldsize;
 	}else if(bflvl < pyldsize && stream == 1){
